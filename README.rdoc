@@ -1,0 +1,6 @@
+= sc
+
+Describe your project here
+
+:include:sc.rdoc
+

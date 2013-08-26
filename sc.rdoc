@@ -1,0 +1,5 @@
+= sc
+
+Generate this with
+    sc rdoc
+After you have described your command line interface

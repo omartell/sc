@@ -1,0 +1,364 @@
+#!/usr/bin/env ruby
+require 'gli'
+begin # XXX: Remove this begin/rescue before distributing your app
+require 'sc'
+require 'soundcloud'
+require 'vlc-client'
+rescue LoadError
+  STDERR.puts "In development, you need to use `bundle exec bin/sc` to run your app"
+  STDERR.puts "At install-time, RubyGems will make sure lib, etc. are in the load path"
+  STDERR.puts "Feel free to remove this message from bin/sc now"
+  exit 64
+end
+
+include GLI::App
+
+program_desc '**************Totally Awesome SoundCloud Command Line App**************'
+
+version "0.0.1"
+
+desc 'port'
+default_value 9000
+arg_name 'Port used for the VLC TCP Socket server'
+flag [:p, :port]
+
+desc 'Search sounds, users or playlists to play'
+arg_name 'Find your favorite sounds by user, playlist or track'
+command :search do |c|
+
+  c.switch [:pl, :playlists], desc: "Search for playlists"
+  c.switch [:t, :tracks], desc: "Search for tracks"
+  c.switch [:u, :users], desc: "Search for users"
+  c.flag :l, arg_name: "limit", desc: "Limit number of results. 5 is the default", default_value: 5
+
+  c.action do |g, opt, args|
+    puts "Looking for awesome sounds in  ☁☁☁ SoundCloud ☁☁☁"
+
+    if args.size == 0
+      raise ArgumentError.new("Sorry, but you didn't specify a search term. Try again")
+    elsif args.size > 1
+      raise ArgumentError.new("Please quote your search term.")
+    end
+
+    client = g.fetch(:sc)
+    query  = args.first
+
+    if opt[:pl]
+      puts "Searching for playlists #{query}"
+      search_playlists(client, q: query, limit: opt[:l])
+    elsif opt[:u]
+      puts "Searching for users #{query}"
+      search_users(client, q: query, limit: opt[:l])
+    else
+      puts "Searching for tracks #{query}  "
+      search_tracks(client, q: query, limit: opt[:l])
+    end
+  end
+end
+
+desc "Play tracks using permalinks titles (user/track), permalink urls or soundcloud ids.
+      Play playlists using playlists permalink titles (user/sets/playlist_name), permalink url or soundcloud ids"
+arg_name 'Find your favorite sounds by user, playlist or track'
+command :play do |c|
+
+  c.desc 'Play from track id'
+  c.switch :id
+
+  c.desc 'Play from permalink title, using the format username/track'
+  c.switch [:perma, :permalink]
+
+  c.desc 'Play track from permalink url'
+  c.switch :url
+
+  c.desc 'Play plalylist from permalink url'
+  c.switch [:plurl, :playlisturl]
+
+  c.desc 'Play playlist from permalink, using the format user/sets/playlist'
+  c.switch [:plperma, :playlistpermalink]
+
+  c.desc 'Play playlist from playlist id'
+  c.switch [:plid, :playlistid]
+
+  c.action do |g, opt, args|
+    vlc    = g[:vlc]
+    client = g[:sc]
+    item   = args.first
+
+    if opt[:url]
+      puts "Playing #{item}"
+      vlc.play(item.gsub("https", "http"))
+    elsif opt[:id]
+      puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
+      track = client.get("/tracks/#{item}")
+      if track
+        puts "Playing #{track.title}"
+        vlc.play(track.permalink_url)
+      else
+        puts "Track with #{item} doesn't exist"
+      end
+    elsif opt[:plperma]
+      puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
+      playlist = client.get("/resolve", url: "http://soundcloud.com/#{item}")
+      play_playlist(playlist, vlc)
+    elsif opt[:plid]
+      puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
+      playlist = client.get("/playlists/#{item}")
+      play_playlist(playlist, vlc)
+    elsif opt[:perma]
+      puts "Playing #{item}"
+      vlc.play("http://soundcloud.com/#{item}")
+    elsif opt[:plurl]
+      puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
+      playlist = client.get("/resolve", url: item)
+      play_playlist(playlist, vlc)
+    else
+      vlc.play
+      status(vlc)
+    end
+  end
+end
+
+desc 'Adds the track to the current playlist'
+command :add do |c|
+
+  c.desc 'Add track from track id'
+  c.switch :id
+
+  c.desc 'Add track from permalink title, using the format username/track'
+  c.switch [:perma, :permalink]
+
+  c.desc 'Add track from permalink url'
+  c.switch :url
+
+  c.desc 'Add playlist from permalink url'
+  c.switch [:plurl, :playlisturl]
+
+  c.desc 'Add playlist from permalink title, using the format username/sets/playlist'
+  c.switch [:plperma, :playlistpermalink]
+
+  c.desc 'Add playlist from playlist id'
+  c.switch [:plid, :playlistid]
+
+  c.action do |g, opt, args|
+    vlc    = g[:vlc]
+    client = g[:sc]
+    item = args.first
+
+    if opt[:url]
+      vlc.add_to_playlist(item.gsub("https", "http"))
+      puts "Adding #{item}"
+    elsif opt[:id]
+      puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
+      track = client.get("/tracks/#{item}")
+      if track
+        vlc.add_to_playlist(track.permalink_url)
+        puts "Adding #{track.title}"
+      else
+        puts "Track with #{item} doesn't exist"
+      end
+    elsif opt[:plperma]
+      puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
+      playlist = client.get("/resolve", url: "http://soundcloud.com/#{item}")
+      add_playlist(playlist, vlc)
+    elsif opt[:plid]
+      puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
+      playlist = client.get("/playlists/#{item}")
+      add_playlist(playlist, vlc)
+    elsif opt[:perma]
+      vlc.add_to_playlist("http://soundcloud.com/#{item}")
+      puts "Adding #{item}"
+    elsif opt[:plurl]
+      puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
+      playlist = client.get("/resolve", url: item)
+      add_playlist(playlist, vlc)
+    else
+      puts "Nothing was added to the playlist"
+    end
+  end
+end
+
+desc 'Plays the next track from the playlist'
+command :next do |c|
+  c.action do |g, opt, args|
+    vlc = g[:vlc]
+    vlc.next
+
+    sleep(0.5)
+
+    status(vlc)
+  end
+end
+
+desc 'Plays the previous track from the playlist'
+command :prev do |c|
+  c.action do |g, opt, args|
+    vlc = g[:vlc]
+    vlc.prev
+
+    sleep(0.5)
+
+    status(vlc)
+  end
+end
+
+desc 'Clears the playlist'
+command :clear do |c|
+  c.action do |g, opt, args|
+    vlc = g[:vlc]
+    vlc.clear
+  end
+end
+
+desc 'Status'
+command :status do |c|
+  c.action do |g, opt, args|
+    vlc = g[:vlc]
+    status(vlc)
+  end
+end
+
+desc 'Toggle random mode'
+command :random do |c|
+  c.action do |g, opt, args|
+    vlc = g[:vlc]
+    vlc.random
+    puts "Toggling random mode"
+  end
+end
+
+desc 'Toggle loop mode'
+command :loop do |c|
+  c.action do |g, opt, args|
+    vlc = g[:vlc]
+    vlc.loop
+    puts "Toggling loop mode"
+  end
+end
+
+desc 'Pause'
+command :pause do |c|
+  c.action do |g, opt, args|
+    vlc = g[:vlc]
+    vlc.pause
+    status(vlc)
+  end
+end
+
+desc 'Stop'
+command :stop do |c|
+  c.action do |g, opt, args|
+    vlc = g[:vlc]
+    vlc.stop
+  end
+end
+
+pre do |g, command, options, args|
+  g[:sc]  = Soundcloud.new(client_id: '32670b0d40eb8b1b87eac9607e13f843')
+  vlc     = VLC::Client.new('127.0.0.1', g[:port])
+  g[:vlc] = vlc
+
+  begin
+    if vlc.disconnected?
+      vlc.connect
+    end
+  rescue VLC::ConnectionRefused
+    puts "Trying to restart the TCP socket connection to VLC.."
+    #Start VLC daemon in the background listening on the TCP socket
+    `/Applications/VLC.app/Contents/MacOS/VLC -I rc --daemon --rc-host 0.0.0.0:#{g[:port]} --rc-fake-tty --reset-config`
+    sleep(1)
+    vlc.connect
+  end
+  true
+end
+
+def add_playlist(playlist, vlc)
+  if playlist.tracks
+    playlist.tracks.each do |t|
+      puts "adding #{t.permalink}"
+      vlc.add_to_playlist(t.permalink_url)
+    end
+  else
+    puts "Sorry the playlist doesnt exist"
+  end
+end
+
+def status(vlc)
+  puts "Now playing #{vlc.title}"
+  puts "#{seconds_to_minutes(vlc.time)}, #{vlc.progress}% - #{seconds_to_minutes(vlc.length)}"
+end
+
+def play_playlist(playlist, vlc)
+  if playlist.tracks
+    vlc.clear
+    vlc.stop
+    playlist.tracks.each do |t|
+      puts "adding #{t.permalink}"
+      vlc.add_to_playlist(t.permalink_url)
+    end
+    sleep(1)
+    vlc.play
+    puts "Playing #{vlc.title}"
+  else
+    puts "Sorry the playlist doesnt exist"
+  end
+end
+
+def search_users(client, params)
+  puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
+  tracks = client.get("/users", params)
+  tracks.each do |u|
+    puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
+    tracks = client.get("/users/#{u.id}/tracks")
+    puts "#{u.permalink}"
+    puts "\t tracks: #{u.track_count}"
+    puts "\t playlists: #{u.playlist_count}"
+    puts "\t sounds from #{u.permalink}:"
+    tracks.sort_by{|t| t.permalink }.each do |t|
+      puts "\t\t #{t.user.permalink}/#{t.permalink}"
+    end
+  end
+end
+
+def search_tracks(client, params)
+  puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
+  tracks = client.get("/tracks", params)
+  tracks.each do |t|
+    puts "#{t.user.permalink}/#{t.permalink}"
+    puts "\t duration: #{miliseconds_to_minutes(t.duration)}"
+    puts "\t id: #{t.id}"
+  end
+end
+
+def search_playlists(client, params)
+  puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
+  playlists = client.get("/playlists", params)
+
+  playlists.each do |p|
+    puts "#{p.user.permalink}/sets/#{p.permalink}"
+    puts "\t tracks: #{p.tracks.size}"
+    puts "\t duration: #{miliseconds_to_minutes(p.duration)}"
+    puts "\t id: #{p.id}"
+    p.tracks.each{ |t| puts "\t #{p.user.permalink}/#{t.permalink}" }
+  end
+end
+
+def miliseconds_to_minutes(duration)
+  Time.at(duration/1000).gmtime.strftime('%R:%S')
+end
+
+def seconds_to_minutes(duration)
+  Time.at(duration).gmtime.strftime('%R:%S')
+end
+
+post do |global,command,options,args|
+  # Post logic here Use skips_post before a command to skip this
+  # block on that command only
+end
+
+on_error do |exception|
+  # Error logic here
+  # return false to skip default error handling
+  true
+end
+
+exit run(ARGV)
