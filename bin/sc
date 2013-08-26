@@ -274,7 +274,7 @@ end
 def add_playlist(playlist, vlc)
   if playlist.tracks
     playlist.tracks.each do |t|
-      puts "adding #{t.permalink}"
+      puts "adding #{t.user.permalink}/#{t.permalink}"
       vlc.add_to_playlist(t.permalink_url)
     end
   else
@@ -292,7 +292,7 @@ def play_playlist(playlist, vlc)
     vlc.clear
     vlc.stop
     playlist.tracks.each do |t|
-      puts "adding #{t.permalink}"
+      puts "adding #{t.user.permalink}/#{t.permalink}"
       vlc.add_to_playlist(t.permalink_url)
     end
     sleep(1)
