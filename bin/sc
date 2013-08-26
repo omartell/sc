@@ -13,7 +13,7 @@ end
 
 include GLI::App
 
-program_desc '**************Totally Awesome SoundCloud Command Line App**************'
+program_desc '**************Totally Awesome ☁☁☁ SoundCloud ☁☁☁ Command Line App**************'
 
 version "0.0.1"
 
@@ -26,7 +26,7 @@ desc 'Search sounds, users or playlists to play'
 arg_name 'Find your favorite sounds by user, playlist or track'
 command :search do |c|
 
-  c.switch [:pl, :playlists], desc: "Search for playlists"
+  c.switch [:p, :playlists], desc: "Search for playlists"
   c.switch [:t, :tracks], desc: "Search for tracks"
   c.switch [:u, :users], desc: "Search for users"
   c.flag :l, arg_name: "limit", desc: "Limit number of results. 5 is the default", default_value: 5
@@ -43,7 +43,7 @@ command :search do |c|
     client = g.fetch(:sc)
     query  = args.first
 
-    if opt[:pl]
+    if opt[:p]
       puts "Searching for playlists #{query}"
       search_playlists(client, q: query, limit: opt[:l])
     elsif opt[:u]
@@ -71,13 +71,13 @@ command :play do |c|
   c.switch :url
 
   c.desc 'Play plalylist from permalink url'
-  c.switch [:plurl, :playlisturl]
+  c.switch [:purl, :playlisturl]
 
   c.desc 'Play playlist from permalink, using the format user/sets/playlist'
-  c.switch [:plperma, :playlistpermalink]
+  c.switch [:pperma, :playlistpermalink]
 
   c.desc 'Play playlist from playlist id'
-  c.switch [:plid, :playlistid]
+  c.switch [:pid, :playlistid]
 
   c.action do |g, opt, args|
     vlc    = g[:vlc]
@@ -96,18 +96,18 @@ command :play do |c|
       else
         puts "Track with #{item} doesn't exist"
       end
-    elsif opt[:plperma]
+    elsif opt[:pperma]
       puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
       playlist = client.get("/resolve", url: "http://soundcloud.com/#{item}")
       play_playlist(playlist, vlc)
-    elsif opt[:plid]
+    elsif opt[:pid]
       puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
       playlist = client.get("/playlists/#{item}")
       play_playlist(playlist, vlc)
     elsif opt[:perma]
       puts "Playing #{item}"
       vlc.play("http://soundcloud.com/#{item}")
-    elsif opt[:plurl]
+    elsif opt[:purl]
       puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
       playlist = client.get("/resolve", url: item)
       play_playlist(playlist, vlc)
@@ -131,13 +131,13 @@ command :add do |c|
   c.switch :url
 
   c.desc 'Add playlist from permalink url'
-  c.switch [:plurl, :playlisturl]
+  c.switch [:purl, :playlisturl]
 
   c.desc 'Add playlist from permalink title, using the format username/sets/playlist'
-  c.switch [:plperma, :playlistpermalink]
+  c.switch [:pperma, :playlistpermalink]
 
   c.desc 'Add playlist from playlist id'
-  c.switch [:plid, :playlistid]
+  c.switch [:pid, :playlistid]
 
   c.action do |g, opt, args|
     vlc    = g[:vlc]
@@ -156,18 +156,18 @@ command :add do |c|
       else
         puts "Track with #{item} doesn't exist"
       end
-    elsif opt[:plperma]
+    elsif opt[:pperma]
       puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
       playlist = client.get("/resolve", url: "http://soundcloud.com/#{item}")
       add_playlist(playlist, vlc)
-    elsif opt[:plid]
+    elsif opt[:pid]
       puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
       playlist = client.get("/playlists/#{item}")
       add_playlist(playlist, vlc)
     elsif opt[:perma]
       vlc.add_to_playlist("http://soundcloud.com/#{item}")
       puts "Adding #{item}"
-    elsif opt[:plurl]
+    elsif opt[:purl]
       puts "Sending request to ☁☁☁ SoundCloud ☁☁☁"
       playlist = client.get("/resolve", url: item)
       add_playlist(playlist, vlc)
