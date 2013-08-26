@@ -1,5 +1,65 @@
-= sc
+= sc - SoundCloud VLC Command Line Player
 
-Generate this with
-    sc rdoc
-After you have described your command line interface
+== Installation
+* This command line app is only compatible with VLC player for MAC OS X.
+* VLC will run as a daemon in TCP Server mode on localhost:9000.
+* Install VLC player in your Applications folder, get it from http://www.videolan.org/vlc/index.html
+* Clone this repo
+* Navigate to the repo
+* See the commands supported by runnning 
+    bundle exec bin/sc --help
+* All the commands must be run with bundle exec bin/sc.
+* If you have url, just make it play by running
+    bundle exec bin/sc play url
+
+== Search
+
+Search for tracks by running 
+    bundle exec bin/sc search "nineinchnails" --t -l 10
+Search for playlists by runing 
+    bundle exec bin/sc search "nineinchnails" --p -l 10
+Search for users by runing 
+    bundle exec bin/sc search "nineinchnails" --u -l 10
+
+== Play
+After getting the permalink titles, permalink urls or soundcloud id of some playlists or tracks just play them running
+* Playlists
+  * Permalink URL
+        bundle exec bin/sc play http://soundcloud.com/nineinchnails/sets/definitive-nin-heavy --purl
+  * Permalink Title
+        bundle exec bin/sc play nineinchnails/sets/definitive-nin-heavy --pperma
+  * SoundCloud id
+        bundle exec bin/sc play 8088036 --pid
+* Tracks
+  * Permalink URL
+        bundle exec bin/sc play https://soundcloud.com/nineinchnails/came-back-haunted-2013 --url
+  * Permalink Title
+        bundle exec bin/sc play nineinchnails/came-back-haunted-2013 --perma
+  * SoundCloud id
+        bundle exec bin/sc play 95453832 --id
+        
+== Add
+After getting the permalink titles, permalink urls or soundcloud id of some playlists or tracks just add them to your playlist
+* Playlists
+  * Permalink URL
+        bundle exec bin/sc add http://soundcloud.com/nineinchnails/sets/definitive-nin-heavy --purl
+  * Permalink Title
+        bundle exec bin/sc add nineinchnails/sets/definitive-nin-heavy --pperma
+  * SoundCloud id
+        bundle exec bin/sc add 8088036 --pid
+* Tracks
+  * Permalink URL
+        bundle exec bin/sc add https://soundcloud.com/nineinchnails/came-back-haunted-2013 --url
+  * Permalink Title
+        bundle exec bin/sc add nineinchnails/came-back-haunted-2013 --perma
+  * SoundCloud id
+        bundle exec bin/sc add 95453832 --id        
+== Other Commands
+* Status
+* Stop
+* Pause
+* Clear
+* Next
+* Prev
+* Random
+* Loop
