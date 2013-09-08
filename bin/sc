@@ -14,8 +14,9 @@ desc 'Search sounds, users or playlists to play'
 command :search do |c|
   c.switch [:t, :tracks], desc: "Search for tracks"
   c.action do |global, options, args|
-    executor = global.fetch(:executor)
-    executor.search(options, args.first)
+    executor  = global.fetch(:executor)
+    tracks_displayer = Sc::TracksDisplayer.new
+    executor.search(options, args.first, tracks_displayer)
   end
 end
 
