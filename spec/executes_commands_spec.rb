@@ -12,6 +12,18 @@ describe "Execute Commands" do
       .with("nineinchnails")
       .and_return(double(:track))
 
-    subject.search(options, args)
+    subject.search(options, args, double.as_null_object)
+  end
+
+it "sends the show matching tracks message to the notifier" do
+    tracks = [stub]
+    sc_client = stub(:client, search_tracks: tracks)
+    subject   = Sc::ExecutesCommands.new(sc_client)
+
+    displayer = mock
+
+    displayer.should_receive(:show_matching_tracks).with(tracks)
+
+    subject.search(options, args, displayer)
   end
 end

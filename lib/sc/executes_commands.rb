@@ -3,8 +3,9 @@ class Sc::ExecutesCommands
     @soundcloud_client = soundcloud_client
   end
 
-  def search(options, search_term)
-    @soundcloud_client.search_tracks(search_term)
+  def search(options, search_term, search_results_displayer)
+    tracks = @soundcloud_client.search_tracks(search_term)
+    search_results_displayer.show_matching_tracks(tracks)
   end
 end
 
