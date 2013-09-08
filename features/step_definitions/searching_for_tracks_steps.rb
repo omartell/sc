@@ -1,3 +1,7 @@
+Before do
+  @aruba_timeout_seconds = 10
+end
+
 Given(/^some "(.*?)" tracks exist in SoundCloud$/) do |artist|
 
 end
