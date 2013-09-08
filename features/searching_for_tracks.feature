@@ -2,6 +2,7 @@ Feature: SoundCloud Track Search
   As a regular SoundCloud user
   I want to search for particular tracks
 
+@vcr
 Scenario: Searching with the artist name
   Given some "Nine Inch Nails" tracks exist in SoundCloud
   When I search using the term "nineinchnails"
