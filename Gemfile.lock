@@ -5,12 +5,6 @@ GIT
     vlc-client (0.0.1)
       retryable (~> 1.3)
 
-PATH
-  remote: .
-  specs:
-    sc (0.0.1)
-      gli (= 2.7.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -32,7 +26,6 @@ GEM
     ffi (1.9.0)
     gherkin (2.12.1)
       multi_json (~> 1.3)
-    gli (2.7.0)
     hashie (2.0.5)
     httmultiparty (0.3.10)
       httparty (>= 0.7.3)
@@ -40,14 +33,10 @@ GEM
     httparty (0.11.0)
       multi_json (~> 1.0)
       multi_xml (>= 0.5.2)
-    json (1.8.0)
     multi_json (1.7.9)
     multi_test (0.0.2)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
-    rake (10.1.0)
-    rdoc (4.0.1)
-      json (~> 1.4)
     retryable (1.3.3)
     rspec (2.2.0)
       rspec-core (~> 2.2)
@@ -61,6 +50,7 @@ GEM
       hashie
       httmultiparty (>= 0.3)
       httparty (>= 0.7.3)
+    vcr (2.5.0)
 
 PLATFORMS
   ruby
@@ -69,9 +59,7 @@ DEPENDENCIES
   aruba
   awesome_print
   cucumber
-  rake
-  rdoc
   rspec
-  sc!
   soundcloud
+  vcr (~> 2.5.0)
   vlc-client!

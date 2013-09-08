@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
-gemspec
-
 
 group :test do
+  gem 'vcr', '~> 2.5.0'
   gem 'cucumber'
   gem 'rspec'
   gem 'aruba'
