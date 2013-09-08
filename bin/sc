@@ -15,7 +15,7 @@ command :search do |c|
   c.switch [:t, :tracks], desc: "Search for tracks"
   c.action do |global, options, args|
     executor = global.fetch(:executor)
-    executor.search(options, args)
+    executor.search(options, args.first)
   end
 end
 
