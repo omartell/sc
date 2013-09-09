@@ -13,9 +13,18 @@ class Sc::Main
   command :search do |c|
     c.switch [:t, :tracks], desc: "Search for tracks"
     c.action do |global, options, args|
-      executor  = global.fetch(:executor)
+      executor = global.fetch(:executor)
       tracks_displayer = Sc::TracksDisplayer.new
       executor.search(options, args.first, tracks_displayer)
+    end
+  end
+
+  desc 'Play soundcloud tracks'
+  command :play do |c|
+    c.switch [:t, :tracks], desc: "Play track using the short track name"
+    c.action do |global, options, args|
+      executor  = global.fetch(:executor)
+      executor.play(options, args.first)
     end
   end
 

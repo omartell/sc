@@ -1,11 +1,16 @@
 class Sc::ExecutesCommands
-  def initialize(soundcloud_client)
+  def initialize(soundcloud_client, player)
     @soundcloud_client = soundcloud_client
+    @player = player
   end
 
   def search(options, search_term, search_results_displayer)
     tracks = @soundcloud_client.search_tracks(search_term)
     search_results_displayer.show_matching_tracks(tracks)
+  end
+
+  def play(options, arg)
+    @player.play_track_permalink(arg)
   end
 end
 
