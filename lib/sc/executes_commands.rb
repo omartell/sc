@@ -10,15 +10,21 @@ class Sc::ExecutesCommands
   end
 
   def play_track_permalink(options, permalink, output)
-    @player.play_track_permalink(permalink)
-    track_information = @soundcloud_client.get_track_info_from_permalink(permalink)
-    output.display_track_information(track_information)
+    track = @soundcloud_client.get_track_info_from_permalink(permalink)
+    @player.play_track(track)
+    output.display_track_information(track)
   end
 
   def play_track_id(options, track_id, output)
-    @player.play_track_id(track_id)
-    track_information = @soundcloud_client.get_track_info_from_track_id(track_id)
-    output.display_track_information(track_information)
+    track = @soundcloud_client.get_track_info_from_track_id(track_id)
+    @player.play_track(track)
+    output.display_track_information(track)
+  end
+
+  def play_playlist_permalink(options, permalink, output)
+    playlist = @soundcloud_client.get_playlist_info_from_permalink(permalink)
+    @player.play_playlist(playlist)
+    output.display_playlist_information(playlist)
   end
 end
 
@@ -39,6 +45,12 @@ class Sc::ConsoleLogger
     puts track.id
   end
 
+  def display_playlist_information(playlist)
+    playlist.tracks.each do |track|
+      display_track_information(track)
+    end
+  end
+
   private
 
   def format_duration(duration)
@@ -51,15 +63,22 @@ class Sc::ConsoleLogger
 end
 
 class Sc::VLCPlayer
+
   def initialize(vlc_client)
     @vlc_client = vlc_client
   end
 
-  def play_track_permalink(permalink)
+  def play_track(track)
 
   end
 
-  def play_track_id(track_id)
+  def play_playlist(playlist)
+    playlist.tracks.each do |track|
+      add_track_to_playlist(track.permalink)
+    end
+  end
+
+  def add_track_to_playlist(permalink)
 
   end
 end
@@ -75,6 +94,16 @@ class Sc::SoundCloudClient
 
   def get_track_info_from_track_id(track_id)
     @client.get("/tracks/#{track_id}")
+  end
+
+  def get_playlist_info_from_permalink(permalink)
+    if permalink.scan("sets").first
+      url = "http://soundcloud.com/#{permalink}"
+    else
+      username, playlist = *permalink.scan(/(.*)\/(.*)/).first
+      url = "http://soundcloud.com/#{username}/sets/#{playlist}"
+    end
+    @client.get("/resolve", url: url)
   end
 
   def get_track_info_from_permalink(permalink)

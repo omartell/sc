@@ -652,4 +652,268 @@ http_interactions:
         from nin.com: http://store.nin.com or iTunes: http://ninein.ch/itunesdlx","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"wav","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95453832?secret_token=s-Kvo8R","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/came-back-haunted-2013/s-Kvo8R","artwork_url":"http://i1.sndcdn.com/artworks-000049792816-yfquch-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/A5HHgXL4xU5V_m.png","stream_url":"http://api.soundcloud.com/tracks/95453832/stream?secret_token=s-Kvo8R","playback_count":2287127,"download_count":0,"favoritings_count":15223,"comment_count":2882,"attachments_uri":"http://api.soundcloud.com/tracks/95453832/attachments"}'
     http_version: 
   recorded_at: Sun, 29 Sep 2013 21:44:03 GMT
+- request:
+    method: get
+    uri: http://api.soundcloud.com/resolve?client_id=32670b0d40eb8b1b87eac9607e13f843&format=json&url=http://soundcloud.com/nineinchnails/definitive-nin-the-singles
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - SoundCloud Ruby Wrapper 0.3.1
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 29 Sep 2013 22:15:53 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '48'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache
+      X-Runtime:
+      - '19'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, Origin
+      Access-Control-Expose-Headers:
+      - Date
+      Access-Control-Allow-Origin:
+      - '*'
+      X-Cacheable:
+      - NO:Cache-Control=no-cache
+      X-Varnish:
+      - '2763081022'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"error_message":"404 - Not Found"}]}'
+    http_version: 
+  recorded_at: Sun, 29 Sep 2013 22:15:34 GMT
+- request:
+    method: get
+    uri: http://api.soundcloud.com/resolve?client_id=32670b0d40eb8b1b87eac9607e13f843&format=json&url=http://soundcloud.com/nineinchnails/sets/definitive-nin-the-singles
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - SoundCloud Ruby Wrapper 0.3.1
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 29 Sep 2013 22:29:27 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '129'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache
+      Location:
+      - http://api.soundcloud.com/playlists/6389846.json?client_id=32670b0d40eb8b1b87eac9607e13f843
+      X-Runtime:
+      - '23'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, Origin
+      Access-Control-Expose-Headers:
+      - Date
+      Access-Control-Allow-Origin:
+      - '*'
+      Vary:
+      - Accept-Encoding
+      X-Cacheable:
+      - NO:Cache-Control=no-cache
+      X-Varnish:
+      - '2769347997'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+    body:
+      encoding: UTF-8
+      string: '{"status":"302 - Found","location":"http://api.soundcloud.com/playlists/6389846.json?client_id=32670b0d40eb8b1b87eac9607e13f843"}'
+    http_version: 
+  recorded_at: Sun, 29 Sep 2013 22:29:08 GMT
+- request:
+    method: get
+    uri: http://api.soundcloud.com/playlists/6389846.json?client_id=32670b0d40eb8b1b87eac9607e13f843
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - SoundCloud Ruby Wrapper 0.3.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 29 Sep 2013 22:29:27 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '43530'
+      Connection:
+      - keep-alive
+      X-Runtime:
+      - '308'
+      Etag:
+      - '"f4e1094d227ad7cc4036139194af91c7"'
+      Cache-Control:
+      - private, max-age=0, must-revalidate
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, Origin
+      Access-Control-Expose-Headers:
+      - Date
+      Access-Control-Allow-Origin:
+      - '*'
+      Vary:
+      - Accept-Encoding
+      X-Cacheable:
+      - NO:Cache-Control=max-age=0
+      X-Varnish:
+      - '1618296469'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+    body:
+      encoding: UTF-8
+      string: '{"kind":"playlist","id":6389846,"created_at":"2013/06/04 21:36:44 +0000","user_id":46380190,"duration":7476786,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"trent reznor\"","permalink":"definitive-nin-the-singles","track_count":27,"streamable":true,"downloadable":false,"embeddable_by":"all","purchase_url":null,"label_id":null,"type":"compilation","playlist_type":"compilation","ean":"","description":"A
+        chronological collection of every single from NIN''s entire career, including
+        the new single, \"Came Back Haunted.\"","genre":"Alternative","release":"","purchase_title":null,"label_name":"","title":"Definitive
+        NIN: The Singles (1989-2013)","release_year":null,"release_month":null,"release_day":null,"license":"all-rights-reserved","uri":"http://api.soundcloud.com/playlists/6389846","permalink_url":"http://soundcloud.com/nineinchnails/sets/definitive-nin-the-singles","artwork_url":"http://i1.sndcdn.com/artworks-000049785040-uizokz-large.jpg?3eddc42","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"tracks":[{"kind":"track","id":95440291,"created_at":"2013/06/04
+        21:36:44 +0000","user_id":46380190,"duration":226580,"commentable":true,"state":"finished","original_content_size":9063619,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"pretty hate machine\" \"down in it\" \"trent reznor\" 80s","permalink":"down-in-it-1989","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Industrial","title":"Down
+        In It (1989)","description":"From the 1989 album \"Pretty Hate Machine.\"
+        Remastered in 2010.","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/17071944","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440291","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/down-in-it-1989","artwork_url":"http://i1.sndcdn.com/artworks-000049786049-1ce221-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/Aftmq2lU2jrN_m.png","stream_url":"http://api.soundcloud.com/tracks/95440291/stream","playback_count":115632,"download_count":0,"favoritings_count":597,"comment_count":35,"attachments_uri":"http://api.soundcloud.com/tracks/95440291/attachments"},{"kind":"track","id":95440290,"created_at":"2013/06/04
+        21:36:44 +0000","user_id":46380190,"duration":300279,"commentable":true,"state":"finished","original_content_size":12011283,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"head like a hole\" \"pretty hate machine\" \"trent reznor\"
+        80s","permalink":"head-like-a-hole-1989","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Industrial","title":"Head
+        Like a Hole (1989)","description":"From the 1989 album \"Pretty Hate Machine.\"
+        Remastered in 2010.","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/17071419","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440290","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/head-like-a-hole-1989","artwork_url":"http://i1.sndcdn.com/artworks-000049785667-c354lt-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/nG4bxUGmWAkk_m.png","stream_url":"http://api.soundcloud.com/tracks/95440290/stream","playback_count":75423,"download_count":0,"favoritings_count":679,"comment_count":48,"attachments_uri":"http://api.soundcloud.com/tracks/95440290/attachments"},{"kind":"track","id":95440292,"created_at":"2013/06/04
+        21:36:44 +0000","user_id":46380190,"duration":246461,"commentable":true,"state":"finished","original_content_size":9858780,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin sin \"pretty hate machine\" \"trent reznor\"","permalink":"sin-1989","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Industrial","title":"Sin
+        (1989)","description":"From the 1989 album \"Pretty Hate Machine.\" Remastered
+        in 2010.","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/3609548","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440292","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/sin-1989","artwork_url":"http://i1.sndcdn.com/artworks-000049786204-e15tca-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/y5vNPvllvMN9_m.png","stream_url":"http://api.soundcloud.com/tracks/95440292/stream","playback_count":50953,"download_count":0,"favoritings_count":442,"comment_count":16,"attachments_uri":"http://api.soundcloud.com/tracks/95440292/attachments"},{"kind":"track","id":95440293,"created_at":"2013/06/04
+        21:36:44 +0000","user_id":46380190,"duration":226893,"commentable":true,"state":"finished","original_content_size":7111264,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin broken wish \"trent reznor\"","permalink":"wish-1992","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Industrial","title":"Wish
+        (1992)","description":"From the 1992 EP \"Broken.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/3561734","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440293","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/wish-1992","artwork_url":"http://i1.sndcdn.com/artworks-000049786374-wk6ygv-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/MlILaUWlqQ1z_m.png","stream_url":"http://api.soundcloud.com/tracks/95440293/stream","playback_count":45923,"download_count":0,"favoritings_count":439,"comment_count":31,"attachments_uri":"http://api.soundcloud.com/tracks/95440293/attachments"},{"kind":"track","id":95440295,"created_at":"2013/06/04
+        21:36:44 +0000","user_id":46380190,"duration":321257,"commentable":true,"state":"finished","original_content_size":9375937,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin broken \"happiness in slavery\" \"trent reznor\" 90s","permalink":"happiness-in-slavery-1992","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Industrial","title":"Happiness
+        In Slavery (1992)","description":"From the 1992 EP \"Broken.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/3556108","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440295","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/happiness-in-slavery-1992","artwork_url":"http://i1.sndcdn.com/artworks-000049786595-nducx9-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/CYAJjJTey7II_m.png","stream_url":"http://api.soundcloud.com/tracks/95440295/stream","playback_count":39603,"download_count":0,"favoritings_count":306,"comment_count":24,"attachments_uri":"http://api.soundcloud.com/tracks/95440295/attachments"},{"kind":"track","id":95440296,"created_at":"2013/06/04
+        21:36:44 +0000","user_id":46380190,"duration":308038,"commentable":true,"state":"finished","original_content_size":9058603,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin broken suck \"trent reznor\"","permalink":"suck-1992","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Industrial","title":"Suck
+        (1992)","description":"From the 1992 EP \"Broken.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440296","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/suck-1992","artwork_url":"http://i1.sndcdn.com/artworks-000049786788-m0a5v8-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/F6Z0DW82avx6_m.png","stream_url":"http://api.soundcloud.com/tracks/95440296/stream","playback_count":35786,"download_count":0,"favoritings_count":270,"comment_count":18,"attachments_uri":"http://api.soundcloud.com/tracks/95440296/attachments"},{"kind":"track","id":95440297,"created_at":"2013/06/04
+        21:36:44 +0000","user_id":46380190,"duration":178537,"commentable":true,"state":"finished","original_content_size":2858193,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"the downward spiral\" \"march of the pigs\" \"trent reznor\"
+        90s","permalink":"march-of-the-pigs-1994","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Alternative","title":"March
+        Of The Pigs (1994)","description":"From the 1994 album \"The Downward Spiral.\"
+        Remastered in 2004.","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/3554852","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440297","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/march-of-the-pigs-1994","artwork_url":"http://i1.sndcdn.com/artworks-000049787142-q44veg-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/I0jCuxbmYzLV_m.png","stream_url":"http://api.soundcloud.com/tracks/95440297/stream","playback_count":37937,"download_count":0,"favoritings_count":406,"comment_count":31,"attachments_uri":"http://api.soundcloud.com/tracks/95440297/attachments"},{"kind":"track","id":95440298,"created_at":"2013/06/04
+        21:36:44 +0000","user_id":46380190,"duration":373429,"commentable":true,"state":"finished","original_content_size":5976157,"sharing":"public","tag_list":"\"nine
+        inch nails\" closer \"the downward spiral\" 90s \"trent reznor\"","permalink":"closer-1994","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Alternative","title":"Closer
+        (1994)","description":"From the 1994 album \"The Downward Spiral.\" Remastered
+        in 2004.","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/channels/490647/3554226","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440298","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/closer-1994","artwork_url":"http://i1.sndcdn.com/artworks-000049787416-bo5yrp-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/hDpBv6en4Em2_m.png","stream_url":"http://api.soundcloud.com/tracks/95440298/stream","playback_count":56670,"download_count":0,"favoritings_count":857,"comment_count":66,"attachments_uri":"http://api.soundcloud.com/tracks/95440298/attachments"},{"kind":"track","id":95440299,"created_at":"2013/06/04
+        21:36:44 +0000","user_id":46380190,"duration":308900,"commentable":true,"state":"finished","original_content_size":7475857,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin hurt \"the downward spiral\" \"trent reznor\" 90s","permalink":"hurt-quiet-1994","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Alternative","title":"Hurt
+        (Quiet) (1994)","description":"From the 1994 album \"The Downward Spiral.\"
+        Remastered in 2004.","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/3617272","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"m4a","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440299","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/hurt-quiet-1994","artwork_url":"http://i1.sndcdn.com/artworks-000049787625-2ikt5o-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/HvaTbkBG8ZwF_m.png","stream_url":"http://api.soundcloud.com/tracks/95440299/stream","playback_count":58369,"download_count":0,"favoritings_count":671,"comment_count":33,"attachments_uri":"http://api.soundcloud.com/tracks/95440299/attachments"},{"kind":"track","id":95440300,"created_at":"2013/06/04
+        21:36:44 +0000","user_id":46380190,"duration":293250,"commentable":true,"state":"finished","original_content_size":8703957,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"the crow\" \"joy division\" \"trent reznor\" 90s","permalink":"dead-souls-joy-division-cover","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Alternative","title":"Dead
+        Souls (Joy Division cover) (1994)","description":"From the 1994 soundtrack
+        album for \"The Crow.\"","label_name":"","release":"","track_type":"other","key_signature":"","isrc":"","video_url":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440300","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/dead-souls-joy-division-cover","artwork_url":"http://i1.sndcdn.com/artworks-000049787971-8668y3-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/GGUcJAoaAs4f_m.png","stream_url":"http://api.soundcloud.com/tracks/95440300/stream","playback_count":41827,"download_count":0,"favoritings_count":640,"comment_count":36,"attachments_uri":"http://api.soundcloud.com/tracks/95440300/attachments"},{"kind":"track","id":95440301,"created_at":"2013/06/04
+        21:36:44 +0000","user_id":46380190,"duration":300148,"commentable":true,"state":"finished","original_content_size":8869549,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin soundtrack burn \"natural born killers\" \"trent reznor\"
+        90s","permalink":"burn-1994","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Alternative","title":"Burn
+        (1994)","description":"From the 1994 soundtrack album for \"Natural Born Killers.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/3685071","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440301","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/burn-1994","artwork_url":"http://i1.sndcdn.com/artworks-000049788108-tcqv38-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/EE9Zi0koKyL9_m.png","stream_url":"http://api.soundcloud.com/tracks/95440301/stream","playback_count":35806,"download_count":0,"favoritings_count":425,"comment_count":28,"attachments_uri":"http://api.soundcloud.com/tracks/95440301/attachments"},{"kind":"track","id":95440302,"created_at":"2013/06/04
+        21:36:44 +0000","user_id":46380190,"duration":315588,"commentable":true,"state":"finished","original_content_size":9240367,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"the perfect drug\" soundtrack \"lost highway\" \"trent
+        reznor\" 90s","permalink":"the-perfect-drug-1997","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Electronic","title":"The
+        Perfect Drug (1997)","description":"From the 1997 soundtrack album for \"Lost
+        Highway.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/3612941","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440302","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/the-perfect-drug-1997","artwork_url":"http://i1.sndcdn.com/artworks-000049788298-k4hph3-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/4wWBPC1m6elI_m.png","stream_url":"http://api.soundcloud.com/tracks/95440302/stream","playback_count":41859,"download_count":0,"favoritings_count":691,"comment_count":42,"attachments_uri":"http://api.soundcloud.com/tracks/95440302/attachments"},{"kind":"track","id":95440304,"created_at":"2013/06/04
+        21:36:45 +0000","user_id":46380190,"duration":273761,"commentable":true,"state":"finished","original_content_size":8245314,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"the day the world went away\" \"the fragile\" \"trent reznor\"
+        90s","permalink":"the-day-the-world-went-away","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Alternative","title":"The
+        Day The World Went Away (1999)","description":"From the 1999 album \"The Fragile.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/66175478","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440304","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/the-day-the-world-went-away","artwork_url":"http://i1.sndcdn.com/artworks-000049788467-kgtek4-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/mTuMjarJg1q1_m.png","stream_url":"http://api.soundcloud.com/tracks/95440304/stream","playback_count":32611,"download_count":0,"favoritings_count":405,"comment_count":24,"attachments_uri":"http://api.soundcloud.com/tracks/95440304/attachments"},{"kind":"track","id":95440305,"created_at":"2013/06/04
+        21:36:45 +0000","user_id":46380190,"duration":436180,"commentable":true,"state":"finished","original_content_size":12134231,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"the fragile\" \"we''re in this together\" \"trent reznor\"
+        90s","permalink":"were-in-this-together-1999","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Alternative","title":"We''re
+        In This Together (1999)","description":"From the 1999 album \"The Fragile.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/3703443","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440305","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/were-in-this-together-1999","artwork_url":"http://i1.sndcdn.com/artworks-000049788649-6x9s3f-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/XqlUygrmbrrX_m.png","stream_url":"http://api.soundcloud.com/tracks/95440305/stream","playback_count":40596,"download_count":0,"favoritings_count":541,"comment_count":35,"attachments_uri":"http://api.soundcloud.com/tracks/95440305/attachments"},{"kind":"track","id":95440306,"created_at":"2013/06/04
+        21:36:45 +0000","user_id":46380190,"duration":289489,"commentable":true,"state":"finished","original_content_size":8613142,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"the fragile\" \"trent reznor\" 90s \"into the void\"","permalink":"into-the-void-1999","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Alternative","title":"Into
+        The Void (1999)","description":"From the 1999 album \"The Fragile.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/61997644","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440306","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/into-the-void-1999","artwork_url":"http://i1.sndcdn.com/artworks-000049948052-9wn995-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/VG4iIa1Xgvpz_m.png","stream_url":"http://api.soundcloud.com/tracks/95440306/stream","playback_count":32163,"download_count":0,"favoritings_count":432,"comment_count":28,"attachments_uri":"http://api.soundcloud.com/tracks/95440306/attachments"},{"kind":"track","id":95440307,"created_at":"2013/06/04
+        21:36:45 +0000","user_id":46380190,"duration":300410,"commentable":true,"state":"finished","original_content_size":8875639,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"the fragile\" \"starfuckers inc\" \"trent reznor\" 90s","permalink":"starfuckers-inc-1999","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Alternative","title":"Starfuckers
+        Inc. (1999)","description":"From the 1999 album \"The Fragile.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/61996823","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440307","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/starfuckers-inc-1999","artwork_url":"http://i1.sndcdn.com/artworks-000049789114-ksb60y-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/moh8KgE7HjgT_m.png","stream_url":"http://api.soundcloud.com/tracks/95440307/stream","playback_count":34169,"download_count":0,"favoritings_count":353,"comment_count":13,"attachments_uri":"http://api.soundcloud.com/tracks/95440307/attachments"},{"kind":"track","id":95440308,"created_at":"2013/06/04
+        21:36:45 +0000","user_id":46380190,"duration":216182,"commentable":true,"state":"finished","original_content_size":6855986,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"tomb raider\" deep soundtrack \"trent reznor\"","permalink":"deep-2001","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Alternative","title":"Deep
+        (2001)","description":"From the 2001 soundtrack album for \"Tomb Raider.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/61997007","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440308","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/deep-2001","artwork_url":"http://i1.sndcdn.com/artworks-000049789306-79ypxq-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/8hUQzM1ZUoQI_m.png","stream_url":"http://api.soundcloud.com/tracks/95440308/stream","playback_count":36475,"download_count":0,"favoritings_count":478,"comment_count":37,"attachments_uri":"http://api.soundcloud.com/tracks/95440308/attachments"},{"kind":"track","id":95440309,"created_at":"2013/06/04
+        21:36:45 +0000","user_id":46380190,"duration":211871,"commentable":true,"state":"finished","original_content_size":6751734,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"with teeth\" \"the hand that feeds\" \"trent reznor\"","permalink":"the-hand-that-feeds-2005","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Alternative","title":"The
+        Hand That Feeds (2005)","description":"From the 2005 album \"With_Teeth.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/61666654","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440309","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/the-hand-that-feeds-2005","artwork_url":"http://i1.sndcdn.com/artworks-000049789498-rushea-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/jMTgkRy5TrFm_m.png","stream_url":"http://api.soundcloud.com/tracks/95440309/stream","playback_count":33807,"download_count":0,"favoritings_count":607,"comment_count":29,"attachments_uri":"http://api.soundcloud.com/tracks/95440309/attachments"},{"kind":"track","id":95440310,"created_at":"2013/06/04
+        21:36:45 +0000","user_id":46380190,"duration":263651,"commentable":true,"state":"finished","original_content_size":7994864,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin only \"with teeth\" \"trent reznor\"","permalink":"only-2005","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Electronic","title":"Only
+        (2005)","description":"From the 2005 album \"With_Teeth.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/61997410","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440310","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/only-2005","artwork_url":"http://i1.sndcdn.com/artworks-000049789680-2zu3o2-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/SxwtYcfpYnZY_m.png","stream_url":"http://api.soundcloud.com/tracks/95440310/stream","playback_count":33528,"download_count":0,"favoritings_count":526,"comment_count":27,"attachments_uri":"http://api.soundcloud.com/tracks/95440310/attachments"},{"kind":"track","id":95440311,"created_at":"2013/06/04
+        21:36:45 +0000","user_id":46380190,"duration":290116,"commentable":true,"state":"finished","original_content_size":8629466,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"with teeth\" \"trent reznor\" \"every day is exactly the
+        same\"","permalink":"every-day-is-exactly-the-same","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Alternative","title":"Every
+        Day Is Exactly The Same (2005)","description":"From the 2005 album \"With_Teeth.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440311","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/every-day-is-exactly-the-same","artwork_url":"http://i1.sndcdn.com/artworks-000049789948-8cy5r9-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/N6OuUNWWmkpK_m.png","stream_url":"http://api.soundcloud.com/tracks/95440311/stream","playback_count":37795,"download_count":0,"favoritings_count":688,"comment_count":44,"attachments_uri":"http://api.soundcloud.com/tracks/95440311/attachments"},{"kind":"track","id":95440312,"created_at":"2013/06/04
+        21:36:45 +0000","user_id":46380190,"duration":264018,"commentable":true,"state":"finished","original_content_size":30655513,"sharing":"public","tag_list":"\"nine
+        inch nails\" \"year zero\" survivalism \"trent reznor\" nin","permalink":"survivalism-2007","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Electronic","title":"Survivalism
+        (2007)","description":"From the 2007 album \"Year Zero.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/2707962","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"m4a","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440312","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/survivalism-2007","artwork_url":"http://i1.sndcdn.com/artworks-000049790168-2d3ij6-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/yBdihAsGuV54_m.png","stream_url":"http://api.soundcloud.com/tracks/95440312/stream","playback_count":30063,"download_count":0,"favoritings_count":380,"comment_count":16,"attachments_uri":"http://api.soundcloud.com/tracks/95440312/attachments"},{"kind":"track","id":95440313,"created_at":"2013/06/04
+        21:36:45 +0000","user_id":46380190,"duration":203277,"commentable":true,"state":"finished","original_content_size":19267501,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"the good soldier\" \"year zero\" \"trent reznor\"","permalink":"the-good-soldier-2007","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Electronic","title":"The
+        Good Soldier (2007)","description":"From the 2007 album \"Year Zero.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"m4a","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440313","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/the-good-soldier-2007","artwork_url":"http://i1.sndcdn.com/artworks-000049790320-c6tqdx-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/x6G5wLeMcEPg_m.png","stream_url":"http://api.soundcloud.com/tracks/95440313/stream","playback_count":29521,"download_count":0,"favoritings_count":338,"comment_count":21,"attachments_uri":"http://api.soundcloud.com/tracks/95440313/attachments"},{"kind":"track","id":95440314,"created_at":"2013/06/04
+        21:36:46 +0000","user_id":46380190,"duration":230263,"commentable":true,"state":"finished","original_content_size":29929162,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"capital g\" \"year zero\" \"trent reznor\"","permalink":"capital-g-2007","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Electronic","title":"Capital
+        G (2007)","description":"A chronological collection of every single from NIN''s
+        entire career.","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"m4a","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440314","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/capital-g-2007","artwork_url":"http://i1.sndcdn.com/artworks-000049790510-tmtjrh-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/rbghOGqXHfw8_m.png","stream_url":"http://api.soundcloud.com/tracks/95440314/stream","playback_count":35320,"download_count":0,"favoritings_count":506,"comment_count":26,"attachments_uri":"http://api.soundcloud.com/tracks/95440314/attachments"},{"kind":"track","id":95440315,"created_at":"2013/06/04
+        21:36:46 +0000","user_id":46380190,"duration":236272,"commentable":true,"state":"finished","original_content_size":5696468,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"the slip\" \"trent reznor\" 1000000","permalink":"1-000-000-2008","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Alternative","title":"1,000,000
+        (2008)","description":"From the 2008 album \"The Slip.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/2298365","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440315","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/1-000-000-2008","artwork_url":"http://i1.sndcdn.com/artworks-000049790861-uu24hn-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/jqiljnbz3iZa_m.png","stream_url":"http://api.soundcloud.com/tracks/95440315/stream","playback_count":62598,"download_count":0,"favoritings_count":481,"comment_count":17,"attachments_uri":"http://api.soundcloud.com/tracks/95440315/attachments"},{"kind":"track","id":95440316,"created_at":"2013/06/04
+        21:36:46 +0000","user_id":46380190,"duration":259262,"commentable":true,"state":"finished","original_content_size":4548250,"sharing":"public","tag_list":"\"the
+        slip\" \"nine inch nails\" nin discipline \"trent reznor\"","permalink":"discipline-2008","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Alternative","title":"Discipline
+        (2008)","description":"From the 2008 album \"The Slip.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/3522739","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440316","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/discipline-2008","artwork_url":"http://i1.sndcdn.com/artworks-000049790946-a7qgix-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/de316NnVNliJ_m.png","stream_url":"http://api.soundcloud.com/tracks/95440316/stream","playback_count":74040,"download_count":0,"favoritings_count":753,"comment_count":37,"attachments_uri":"http://api.soundcloud.com/tracks/95440316/attachments"},{"kind":"track","id":95440317,"created_at":"2013/06/04
+        21:36:46 +0000","user_id":46380190,"duration":285309,"commentable":true,"state":"finished","original_content_size":4981342,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"trent reznor\" echoplex \"the slip\"","permalink":"echoplex-2008","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Alternative","title":"Echoplex
+        (2008)","description":"From the 2008 album \"The Slip.\"","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":"http://vimeo.com/2300016","bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95440317","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/echoplex-2008","artwork_url":"http://i1.sndcdn.com/artworks-000049791047-ll7wc7-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/KWK7jNg9Nf58_m.png","stream_url":"http://api.soundcloud.com/tracks/95440317/stream","playback_count":149046,"download_count":0,"favoritings_count":729,"comment_count":52,"attachments_uri":"http://api.soundcloud.com/tracks/95440317/attachments"},{"kind":"track","id":95453832,"created_at":"2013/06/04
+        23:23:23 +0000","user_id":46380190,"duration":317365,"commentable":true,"state":"finished","original_content_size":55966328,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"came back haunted\" \"trent reznor\"","permalink":"came-back-haunted-2013","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Electronic","title":"Came
+        Back Haunted (2013)","description":"First single from the upcoming album \"Hesitation
+        Marks,\" out 9.03.13. Pre-order the album and download \"Came Back Haunted\"
+        from nin.com: http://store.nin.com or iTunes: http://ninein.ch/itunesdlx","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"wav","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95453832","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/came-back-haunted-2013","artwork_url":"http://i1.sndcdn.com/artworks-000049792816-yfquch-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/A5HHgXL4xU5V_m.png","stream_url":"http://api.soundcloud.com/tracks/95453832/stream","playback_count":2287366,"download_count":0,"favoritings_count":15223,"comment_count":2882,"attachments_uri":"http://api.soundcloud.com/tracks/95453832/attachments"}]}'
+    http_version: 
+  recorded_at: Sun, 29 Sep 2013 22:29:08 GMT
 recorded_with: VCR 2.5.0

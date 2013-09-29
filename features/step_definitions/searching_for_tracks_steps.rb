@@ -18,7 +18,7 @@ Then(/^I should see the following track information:$/) do |table|
   end
 end
 
-Given(/^I have the short soundcloud track name "(.*?)"$/) do |track_name|
+Given(/^I have the soundcloud track permalink "(.*?)"$/) do |track_name|
 
 end
 
@@ -41,4 +41,11 @@ end
 
 When(/^I run play id with "(.*?)"$/) do |track_id|
   run_simple(unescape("sc play #{track_id} --id"), false)
+end
+
+Given(/^I have the soundcloud playlist permalink "(.*?)"$/) do |arg1|
+end
+
+When(/^I run play playlist permalink with "(.*?)"$/) do |playlist_permalink|
+  run_simple(unescape("sc play #{playlist_permalink} --playlist"), false)
 end
