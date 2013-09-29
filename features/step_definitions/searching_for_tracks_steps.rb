@@ -22,8 +22,8 @@ Given(/^I have the short soundcloud track name "(.*?)"$/) do |track_name|
 
 end
 
-When(/^I run play track with "(.*?)"$/) do |track_name|
-  run_simple(unescape("sc play #{track_name} -t"), false)
+When(/^I run play permalink with "(.*?)"$/) do |track_name|
+  run_simple(unescape("sc play #{track_name} -p"), false)
 end
 
 Then(/^I should see the following now playing track information:$/) do |table|

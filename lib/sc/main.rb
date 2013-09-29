@@ -4,33 +4,34 @@ require 'vlc-client'
 
 class Sc::Main
   extend GLI::App
-
   program_desc '**************Totally Awesome ☁☁☁ SoundCloud ☁☁☁ Command Line App**************'
-
   version "0.0.1"
 
   desc 'Search sounds, users or playlists to play'
   command :search do |c|
     c.switch [:t, :tracks], desc: "Search for tracks"
     c.action do |global, options, args|
-      executor = global.fetch(:executor)
-      tracks_displayer = Sc::TracksDisplayer.new
-      executor.search(options, args.first, tracks_displayer)
+      executor       = global.fetch(:executor)
+      console_logger = Sc::ConsoleLogger.new
+      executor.search(options, args.first, console_logger)
     end
   end
 
   desc 'Play soundcloud tracks'
   command :play do |c|
-    c.switch [:t, :tracks], desc: "Play track using the short track name"
+    c.switch [:p, :tracks], desc: "Play track using the track permalink"
     c.action do |global, options, args|
-      executor  = global.fetch(:executor)
-      executor.play(options, args.first)
+      executor       = global.fetch(:executor)
+      console_logger = Sc::ConsoleLogger.new
+      executor.play_track_permalink(options, args.first, console_logger)
     end
   end
 
   pre do |global,command,options,args|
-    sc_client         = Soundcloud.new(client_id: '32670b0d40eb8b1b87eac9607e13f843')
-    global[:executor] = Sc::ExecutesCommands.new(Sc::SoundCloudClient.new(sc_client))
+    sc_lib         = Soundcloud.new(client_id: '32670b0d40eb8b1b87eac9607e13f843')
+    sc_client      = Sc::SoundCloudClient.new(sc_lib)
+    player         = Sc::VLCPlayer.new(VLC::Client.new('127.0.0.1', '9000'))
+    global[:executor] = Sc::ExecutesCommands.new(sc_client, player)
     true
   end
 

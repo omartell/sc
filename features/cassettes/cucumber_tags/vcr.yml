@@ -218,4 +218,169 @@ http_interactions:
         You Don''t","description":"","label_name":"","release":"","track_type":"","key_signature":"","isrc":"","video_url":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"mp3","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/102171637","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?5e64f12"},"permalink_url":"http://soundcloud.com/nineinchnails/no-you-dont","artwork_url":"http://i1.sndcdn.com/artworks-000053533447-na7loc-large.jpg?5e64f12","waveform_url":"http://w1.sndcdn.com/6TnReTqdtTaD_m.png","stream_url":"http://api.soundcloud.com/tracks/102171637/stream","playback_count":5417,"download_count":0,"favoritings_count":100,"comment_count":4,"attachments_uri":"http://api.soundcloud.com/tracks/102171637/attachments"}]'
     http_version: 
   recorded_at: Sun, 08 Sep 2013 19:52:28 GMT
+- request:
+    method: get
+    uri: http://api.soundcloud.com/resolve?client_id=32670b0d40eb8b1b87eac9607e13f843&format=json&url=http://soundcloud.com/came-back-haunted-2013
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - SoundCloud Ruby Wrapper 0.3.1
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 29 Sep 2013 19:30:02 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '48'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache
+      X-Runtime:
+      - '36'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, Origin
+      Access-Control-Expose-Headers:
+      - Date
+      Access-Control-Allow-Origin:
+      - '*'
+      X-Cacheable:
+      - NO:Cache-Control=no-cache
+      X-Varnish:
+      - '2676917897'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"error_message":"404 - Not Found"}]}'
+    http_version: 
+  recorded_at: Sun, 29 Sep 2013 19:29:48 GMT
+- request:
+    method: get
+    uri: http://api.soundcloud.com/resolve?client_id=32670b0d40eb8b1b87eac9607e13f843&format=json&url=http://soundcloud.com/nineinchnails/came-back-haunted-2013
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - SoundCloud Ruby Wrapper 0.3.1
+  response:
+    status:
+      code: 302
+      message: Moved Temporarily
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 29 Sep 2013 19:33:49 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '127'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache
+      Location:
+      - http://api.soundcloud.com/tracks/95453832.json?client_id=32670b0d40eb8b1b87eac9607e13f843
+      X-Runtime:
+      - '26'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, Origin
+      Access-Control-Expose-Headers:
+      - Date
+      Access-Control-Allow-Origin:
+      - '*'
+      Vary:
+      - Accept-Encoding
+      X-Cacheable:
+      - NO:Cache-Control=no-cache
+      X-Varnish:
+      - '1527970578'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+    body:
+      encoding: UTF-8
+      string: '{"status":"302 - Found","location":"http://api.soundcloud.com/tracks/95453832.json?client_id=32670b0d40eb8b1b87eac9607e13f843"}'
+    http_version: 
+  recorded_at: Sun, 29 Sep 2013 19:33:35 GMT
+- request:
+    method: get
+    uri: http://api.soundcloud.com/tracks/95453832.json?client_id=32670b0d40eb8b1b87eac9607e13f843
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - SoundCloud Ruby Wrapper 0.3.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 29 Sep 2013 19:33:49 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1752'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=600, public
+      Vary:
+      - Authorization, Accept, Accept-Encoding
+      X-Runtime:
+      - '9'
+      Etag:
+      - '"fb758354040ec14faea48dac96ac9f92"'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Content-Type, Origin
+      Access-Control-Expose-Headers:
+      - Date
+      Access-Control-Allow-Origin:
+      - '*'
+      X-Cacheable:
+      - 'YES'
+      X-Varnish:
+      - '2679015171'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+    body:
+      encoding: UTF-8
+      string: '{"kind":"track","id":95453832,"created_at":"2013/06/04 23:23:23 +0000","user_id":46380190,"duration":317365,"commentable":true,"state":"finished","original_content_size":55966328,"sharing":"public","tag_list":"\"nine
+        inch nails\" nin \"came back haunted\" \"trent reznor\"","permalink":"came-back-haunted-2013","streamable":true,"embeddable_by":"all","downloadable":false,"purchase_url":null,"label_id":null,"purchase_title":null,"genre":"Electronic","title":"Came
+        Back Haunted (2013)","description":"First single from the upcoming album \"Hesitation
+        Marks,\" out 9.03.13. Pre-order the album and download \"Came Back Haunted\"
+        from nin.com: http://store.nin.com or iTunes: http://ninein.ch/itunesdlx","label_name":"","release":"","track_type":"original","key_signature":"","isrc":"","video_url":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"original_format":"wav","license":"all-rights-reserved","uri":"http://api.soundcloud.com/tracks/95453832?secret_token=s-Kvo8R","user":{"id":46380190,"kind":"user","permalink":"nineinchnails","username":"nineinchnails","uri":"http://api.soundcloud.com/users/46380190","permalink_url":"http://soundcloud.com/nineinchnails","avatar_url":"http://i1.sndcdn.com/avatars-000043925604-s4mhaz-large.jpg?3eddc42"},"permalink_url":"http://soundcloud.com/nineinchnails/came-back-haunted-2013/s-Kvo8R","artwork_url":"http://i1.sndcdn.com/artworks-000049792816-yfquch-large.jpg?3eddc42","waveform_url":"http://w1.sndcdn.com/A5HHgXL4xU5V_m.png","stream_url":"http://api.soundcloud.com/tracks/95453832/stream?secret_token=s-Kvo8R","playback_count":2286418,"download_count":0,"favoritings_count":15222,"comment_count":2882,"attachments_uri":"http://api.soundcloud.com/tracks/95453832/attachments"}'
+    http_version: 
+  recorded_at: Sun, 29 Sep 2013 19:33:35 GMT
 recorded_with: VCR 2.5.0

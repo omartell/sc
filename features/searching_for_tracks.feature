@@ -17,7 +17,7 @@ Scenario: Searching with the artist name
 @vcr
 Scenario: Playing a song using the short soundcloud track name
   Given I have the short soundcloud track name "came-back-haunted-2013"
-  When I run play track with "came-back-haunted-2013"
+  When I run play permalink with "nineinchnails/came-back-haunted-2013"
   Then I should see the following now playing track information:
-  | track_name                    | artist        | duration | id        |
-  | came-back-haunted-2013        | nineinchnails | 05:17    | 95453832  |
+  | track_name               | artist        | duration | id        |
+  | came-back-haunted-2013   | nineinchnails | 05:17    | 95453832  |
