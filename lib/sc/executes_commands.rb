@@ -14,6 +14,12 @@ class Sc::ExecutesCommands
     track_information = @soundcloud_client.get_track_info_from_permalink(permalink)
     output.display_track_information(track_information)
   end
+
+  def play_track_id(options, track_id, output)
+    @player.play_track_id(track_id)
+    track_information = @soundcloud_client.get_track_info_from_track_id(track_id)
+    output.display_track_information(track_information)
+  end
 end
 
 class Sc::ConsoleLogger
@@ -52,6 +58,10 @@ class Sc::VLCPlayer
   def play_track_permalink(permalink)
 
   end
+
+  def play_track_id(track_id)
+
+  end
 end
 
 class Sc::SoundCloudClient
@@ -61,6 +71,10 @@ class Sc::SoundCloudClient
 
   def search_tracks(query)
     @client.get("/tracks", q: query)
+  end
+
+  def get_track_info_from_track_id(track_id)
+    @client.get("/tracks/#{track_id}")
   end
 
   def get_track_info_from_permalink(permalink)

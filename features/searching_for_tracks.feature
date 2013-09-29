@@ -21,3 +21,11 @@ Scenario: Playing tracks using the permalink
   Then I should see the following now playing track information:
   | track_name               | artist        | duration | id        |
   | came-back-haunted-2013   | nineinchnails | 05:17    | 95453832  |
+
+@vcr
+Scenario: Playing tracks using the track id
+  Given I have the soundcloud track id for "came-back-haunted-2013"
+  When I run play id with "95453832"
+  Then I should see the following now playing track information:
+  | track_name               | artist        | duration | id        |
+  | came-back-haunted-2013   | nineinchnails | 05:17    | 95453832  |

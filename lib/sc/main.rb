@@ -19,11 +19,16 @@ class Sc::Main
 
   desc 'Play soundcloud tracks'
   command :play do |c|
-    c.switch [:p, :tracks], desc: "Play track using the track permalink"
+    c.switch [:p, :permalink], desc: "Play track using the track permalink"
+    c.switch [:id, :id], desc: "Play track using the soundcloud track id"
     c.action do |global, options, args|
       executor       = global.fetch(:executor)
       console_logger = Sc::ConsoleLogger.new
-      executor.play_track_permalink(options, args.first, console_logger)
+      if options[:p]
+        executor.play_track_permalink(options, args.first, console_logger)
+      elsif options[:id]
+        executor.play_track_id(options, args.first, console_logger)
+      end
     end
   end
 
