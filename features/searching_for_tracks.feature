@@ -15,7 +15,7 @@ Scenario: Searching with the artist name
   | closer-1994                   | nineinchnails | 06:13    | 95440298  |
 
 @vcr
-Scenario: Playing a song using the short soundcloud track name
+Scenario: Playing tracks using the permalink
   Given I have the short soundcloud track name "came-back-haunted-2013"
   When I run play permalink with "nineinchnails/came-back-haunted-2013"
   Then I should see the following now playing track information:
