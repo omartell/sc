@@ -31,7 +31,7 @@ Scenario: Playing tracks using the track id
   | came-back-haunted-2013   | nineinchnails | 05:17    | 95453832  |
 
 @vcr
-Scenario: Play the playlist
+Scenario: Play soundcloud playlist using the set permalink
   Given I have the soundcloud playlist permalink "definitive-nin-the-singles"
   When I run play playlist permalink with "nineinchnails/definitive-nin-the-singles"
   Then I should see the following now playing track information:
