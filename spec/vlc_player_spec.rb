@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 describe Sc::VLCPlayer do
   describe "#connect" do
 
