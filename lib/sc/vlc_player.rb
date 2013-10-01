@@ -8,7 +8,7 @@ class Sc::VLCPlayer
   end
 
   def play_track(track)
-    vlc_client.play(track.permalink)
+    vlc_client.play(track.permalink_url)
   end
 
   def connect
