@@ -52,6 +52,10 @@ class Sc::ConsoleLogger
     end
   end
 
+  def player_is_not_available
+    puts "Your vlc player process doesn't seem to be running :("
+  end
+
   private
 
   def format_duration(duration)
