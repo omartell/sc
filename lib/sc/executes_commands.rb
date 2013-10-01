@@ -63,26 +63,10 @@ class Sc::ConsoleLogger
   end
 end
 
-class Sc::VLCPlayer
-  attr_reader :vlc_client
-  def initialize(vlc_client)
-    @vlc_client = vlc_client
-  end
-
-  def play_track(track)
-
-  end
-
-  def play_playlist(playlist)
-    playlist.tracks.each do |track|
-      add_track_to_playlist(track.permalink)
-    end
-  end
-
-  def add_track_to_playlist(permalink)
-
-  end
+module Sc
+  class PlayerNotAvailableError < StandardError; end;
 end
+
 
 class Sc::SoundCloudClient
   attr_reader :client
