@@ -3,6 +3,7 @@ require_relative './sc/vlc_player.rb'
 require_relative './sc/soundcloud_client.rb'
 require_relative './sc/console_logger.rb'
 require_relative './sc/executes_commands.rb'
+require_relative './sc/errors.rb'
 require_relative './sc/main.rb'
 
 # Add requires for other files you add to your project here, so

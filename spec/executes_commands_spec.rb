@@ -1,35 +1,27 @@
 require 'spec_helper'
 
 describe "Execute Commands" do
-  let(:options){ { t: true } }
-  let(:args){ "nineinchnails" }
-  let(:player){ mock(:player) }
 
-  def build_executes_commands(sc_client, player)
-    @commands ||= Sc::ExecutesCommands.new(sc_client, player)
-  end
+  let(:player){ double(:player) }
+  let(:sc_client){ double(:sc_client) }
+  let(:output_logger){ double(:output_logger) }
+  let(:executes_commands){ Sc::ExecutesCommands.new(sc_client, player) }
 
-  it "executes the search command" do
-    sc_client = mock(:client)
-    subject   = build_executes_commands(sc_client, player)
-    sc_client
-      .should_receive(:search_tracks)
-      .with("nineinchnails")
-      .and_return(double(:track))
+  context "Searching for tracks" do
+    it "executes the search command" do
+      expect(sc_client).to receive(:search_tracks).with("nineinchnails")
 
-    subject.search(options, args, double.as_null_object)
-  end
+      executes_commands.search({}, "nineinchnails", output_logger.as_null_object)
+    end
 
-it "sends the show matching tracks message to the notifier" do
-    tracks = [stub]
-    sc_client = stub(:client, search_tracks: tracks)
-    subject   = build_executes_commands(sc_client, player)
+    it "sends the show matching tracks message to the notifier" do
+      tracks = [double(:track)]
+      sc_client.stub(search_tracks: tracks)
 
-    output = mock
+      expect(output_logger).to receive(:show_matching_tracks).with(tracks)
 
-    output.should_receive(:show_matching_tracks).with(tracks)
-
-    subject.search(options, args, output)
+      executes_commands.search({}, "nineinchnails", output_logger)
+    end
   end
 
   context "Playing tracks using the permalink url" do
@@ -38,35 +30,28 @@ it "sends the show matching tracks message to the notifier" do
     }
 
     it "sends the play track from permalink url message to the player" do
-      player   = mock(:player)
-      client   = double(:client, get_track_info_from_permalink_url: double)
-      executor = build_executes_commands(client, player)
+      sc_client.as_null_object
 
       expect(player).to receive(:play_track)
 
-      executor.play_track_permalink_url({}, permalink_url, double.as_null_object)
+      executes_commands.play_track_permalink_url({}, permalink_url, output_logger.as_null_object)
     end
 
     it "send get_track_info_from_permalink_url message to the soundcloud_client" do
-      player   = double(:player, play_track: nil)
-      client   = mock(:client)
-      executor = build_executes_commands(client, player)
+      player.as_null_object
 
-      expect(client).to receive(:get_track_info_from_permalink_url)
+      expect(sc_client).to receive(:get_track_info_from_permalink_url)
 
-      executor.play_track_permalink_url({}, permalink_url, double.as_null_object)
+      executes_commands.play_track_permalink_url({}, permalink_url, output_logger.as_null_object)
     end
 
     it "outputs the track information" do
-      player   = double(:player, play_track: nil)
-      client   = double(:client, get_track_info_from_permalink_url: double)
-      executor = build_executes_commands(client, player)
+      player.as_null_object
+      sc_client.as_null_object
 
-      logger   = mock(:logger)
+      expect(output_logger).to receive(:display_track_information)
 
-      expect(logger).to receive(:display_track_information)
-
-      executor.play_track_permalink_url({}, permalink_url, logger)
+      executes_commands.play_track_permalink_url({}, permalink_url, output_logger)
     end
   end
 
@@ -77,37 +62,28 @@ it "sends the show matching tracks message to the notifier" do
     }
 
     it "plays the track using the track short name" do
-      player     = mock(:player)
-      sc_client  = double(:client).as_null_object
+      sc_client.as_null_object
 
-      subject   = build_executes_commands(sc_client, player)
+      expect(player).to receive(:play_track)
 
-      player.should_receive(:play_track)
-
-      subject.play_track_permalink(options, permalink, double.as_null_object)
+      executes_commands.play_track_permalink({}, permalink, output_logger.as_null_object)
     end
 
     it "gets the track information from the soundcloud client" do
-      player     = double(:player).as_null_object
-      sc_client  = mock(:client)
+      player.as_null_object
 
-      subject   = build_executes_commands(sc_client, player)
+      expect(sc_client).to receive(:get_track_info_from_permalink).with(permalink)
 
-      sc_client.should_receive(:get_track_info_from_permalink).with(permalink)
-
-      subject.play_track_permalink(options, permalink, double.as_null_object)
+      executes_commands.play_track_permalink({}, permalink, output_logger.as_null_object)
     end
 
-    it "notifies the output object to dispaly the track information" do
-      player     = double(:player).as_null_object
-      sc_client  = double(:client).as_null_object
-      output_logger = mock(:logger)
+    it "notifies the output object to display the track information" do
+      player.as_null_object
+      sc_client.as_null_object
 
-      subject   = build_executes_commands(sc_client, player)
+      expect(output_logger).to receive(:display_track_information)
 
-      output_logger.should_receive(:display_track_information)
-
-      subject.play_track_permalink(options, permalink, output_logger)
+      executes_commands.play_track_permalink({}, permalink, output_logger)
     end
   end
 end

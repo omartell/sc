@@ -6,6 +6,10 @@ Given(/^some "(.*?)" tracks exist in SoundCloud$/) do |artist|
 
 end
 
+Given(/^I have the soundcloud track permalink "(.*?)"$/) do |arg1|
+
+end
+
 When(/^I search using the term "(.*?)"$/) do |search_term|
   run_simple(unescape("sc search nineinchnails -t"), false)
 end
@@ -43,11 +47,12 @@ Given(/^I have the soundcloud track id for "(.*?)"$/) do |arg1|
 
 end
 
-When(/^I run play id with "(.*?)"$/) do |track_id|
-  run_simple(unescape("sc play #{track_id} --id"), false)
+Given(/^I have the soundcloud playlist permalink "(.*?)"$/) do |arg1|
+
 end
 
-Given(/^I have the soundcloud playlist permalink "(.*?)"$/) do |arg1|
+When(/^I run play id with "(.*?)"$/) do |track_id|
+  run_simple(unescape("sc play #{track_id} --id"), false)
 end
 
 When(/^I run play playlist permalink with "(.*?)"$/) do |playlist_permalink|

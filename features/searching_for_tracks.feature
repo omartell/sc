@@ -1,6 +1,7 @@
 Feature: SoundCloud Track Search
   As a regular SoundCloud user
   I want to search for particular tracks
+  So that I can play them later
 
 @vcr
 Scenario: Searching with the artist name
