@@ -21,7 +21,9 @@ module Sc
     command :play do |c|
       c.switch [:p, :permalink], desc: "Play track using the track permalink"
       c.switch [:id, :id], desc: "Play track using the soundcloud track id"
+      c.switch [:url, :permalink_url], desc: "Play track using the permalink url"
       c.switch [:pl, :playlist], desc: "Play a playlist using the soundcloud set permalink"
+
       c.action do |global, options, args|
         executor       = global.fetch(:executor)
         console_logger = ConsoleLogger.new
@@ -31,6 +33,8 @@ module Sc
           executor.play_track_id(options, args.first, console_logger)
         elsif options[:pl]
           executor.play_playlist_permalink(options, args.first, console_logger)
+        elsif options[:url]
+          executor.play_track_permalink_url(options, args.first, console_logger)
         end
       end
     end

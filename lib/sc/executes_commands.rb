@@ -10,6 +10,12 @@ class Sc::ExecutesCommands
     output.show_matching_tracks(tracks)
   end
 
+  def play_track_permalink_url(options, permalink_url, output)
+    track = soundcloud_client.get_track_info_from_permalink_url(permalink_url)
+    player.play_track(track)
+    output.display_track_information(track)
+  end
+
   def play_track_permalink(options, permalink, output)
     track = soundcloud_client.get_track_info_from_permalink(permalink)
     player.play_track(track)

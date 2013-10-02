@@ -32,10 +32,50 @@ it "sends the show matching tracks message to the notifier" do
     subject.search(options, args, output)
   end
 
-  context "Playing Tracks" do
+  context "Playing tracks using the permalink url" do
+    let(:permalink_url){
+      "https://soundcloud.com/nineinchnails/came-back-haunted-2013"
+    }
+
+    it "sends the play track from permalink url message to the player" do
+      player   = mock(:player)
+      client   = double(:client, get_track_info_from_permalink_url: double)
+      executor = build_executes_commands(client, player)
+
+      expect(player).to receive(:play_track)
+
+      executor.play_track_permalink_url({}, permalink_url, double.as_null_object)
+    end
+
+    it "send get_track_info_from_permalink_url message to the soundcloud_client" do
+      player   = double(:player, play_track: nil)
+      client   = mock(:client)
+      executor = build_executes_commands(client, player)
+
+      expect(client).to receive(:get_track_info_from_permalink_url)
+
+      executor.play_track_permalink_url({}, permalink_url, double.as_null_object)
+    end
+
+    it "outputs the track information" do
+      player   = double(:player, play_track: nil)
+      client   = double(:client, get_track_info_from_permalink_url: double)
+      executor = build_executes_commands(client, player)
+
+      logger   = mock(:logger)
+
+      expect(logger).to receive(:display_track_information)
+
+      executor.play_track_permalink_url({}, permalink_url, logger)
+    end
+  end
+
+  context "Playing tracks using the permalink" do
+
     let(:permalink){
       "nineinchnails/came-back-haunted-2013"
     }
+
     it "plays the track using the track short name" do
       player     = mock(:player)
       sc_client  = double(:client).as_null_object
