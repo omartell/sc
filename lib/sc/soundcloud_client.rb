@@ -12,6 +12,10 @@ class Sc::SoundCloudClient
     client.get("/tracks/#{track_id}")
   end
 
+  def get_track_info_from_permalink_url(permalink_url)
+    client.get("/resolve", url: permalink_url)
+  end
+
   def get_playlist_info_from_permalink(permalink)
     if permalink.scan("sets").first
       resolve_permalink(permalink)

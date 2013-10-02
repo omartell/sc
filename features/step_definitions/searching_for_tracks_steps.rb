@@ -23,11 +23,11 @@ Then(/^I should see the following track information:$/) do |table|
 end
 
 Given(/^I have the soundcloud track permalink url for "(.*?)"$/) do |permalink_url|
-  run_simple(unescape("sc play #{permalink_url} --permalinkurl"), false)
+
 end
 
-When(/^I run play permalink url with "(.*?)"$/) do |arg1|
-
+When(/^I run play permalink url with "(.*?)"$/) do |permalink_url|
+  run_simple(unescape("sc play #{permalink_url} --permalinkurl"), false)
 end
 
 When(/^I run play permalink with "(.*?)"$/) do |track_name|

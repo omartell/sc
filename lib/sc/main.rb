@@ -21,7 +21,7 @@ module Sc
     command :play do |c|
       c.switch [:p, :permalink], desc: "Play track using the track permalink"
       c.switch [:id, :id], desc: "Play track using the soundcloud track id"
-      c.switch [:url, :permalink_url], desc: "Play track using the permalink url"
+      c.switch [:url, :permalinkurl], desc: "Play track using the permalink url"
       c.switch [:pl, :playlist], desc: "Play a playlist using the soundcloud set permalink"
 
       c.action do |global, options, args|
@@ -43,9 +43,9 @@ module Sc
       sc_lib         = Soundcloud.new(client_id: '32670b0d40eb8b1b87eac9607e13f843')
       sc_client      = SoundCloudClient.new(sc_lib)
       console_logger = ConsoleLogger.new
-      start_vlc_process = ->{
+      start_vlc_process = -> do
         system("/Applications/VLC.app/Contents/MacOS/VLC -I rc --daemon --rc-host 0.0.0.0:9000 --rc-fake-tty --reset-config")
-      }
+      end
       player = VLCPlayer.new(VLC::Client.new('127.0.0.1', '9000'), start_vlc_process, console_logger)
       begin
         player.connect
