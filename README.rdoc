@@ -1,14 +1,16 @@
 = sc - SoundCloud VLC Command Line Player
 
+{<img src="https://raw.githubusercontent.com/oMartell/sc/master/screenshot.png">}[http://github.com/omartell/sc]
+
 == Installation
-* This command line app is only compatible with VLC player for MAC OS X.
-* VLC will run as a daemon in TCP Socket Server mode on localhost:9000.
+* This command line app is only compatible with VLC player for MAC OS X
+* VLC will run as a daemon in TCP Socket Server mode on localhost:9000
 * Install VLC player in your Applications folder, get it from http://www.videolan.org/vlc/index.html
-* Clone this repo, last working version https://github.com/oMartell/sc/commit/d981bddc97a34c05a7044b1a7dda86fb6d345a34
+* Clone this repo, last working version is d981bddc97a34c05a7044b1a7dda86fb6d345a34
 * Navigate to the repo
 * Run
     bundle
-* See the supported commands by runnning 
+* See the supported commands by running 
     bundle exec bin/sc --help
 * All the commands must be run with bundle exec bin/sc.
 * If you have a soundcloud permalink url just play it by running
