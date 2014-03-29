@@ -8,7 +8,7 @@
 * Navigate to the repo
 * Run
     bundle
-* See the commands supported by runnning 
+* See the supported commands by runnning 
     bundle exec bin/sc --help
 * All the commands must be run with bundle exec bin/sc.
 * If you have a soundcloud permalink url just play it by running
@@ -18,13 +18,13 @@
 
 Search for tracks by running 
     bundle exec bin/sc search "nineinchnails" --t -l 10
-Search for playlists by runing 
+Search for playlists by running 
     bundle exec bin/sc search "nineinchnails" --p -l 10
-Search for users by runing 
+Search for users by running 
     bundle exec bin/sc search "nineinchnails" --u -l 10
 
 == Play
-After getting the permalink titles, permalink urls or soundcloud id of some playlists or tracks just play them running
+After getting the permalink titles, permalink urls or soundcloud id of some playlists or tracks just play them by running
 * Playlists
   * Permalink URL
         bundle exec bin/sc play http://soundcloud.com/nineinchnails/sets/definitive-nin-heavy --purl
@@ -56,7 +56,8 @@ After getting the permalink titles, permalink urls or soundcloud id of some play
         bundle exec bin/sc add nineinchnails/came-back-haunted-2013 --perma
   * SoundCloud id
         bundle exec bin/sc add 95453832 --id        
-== Other Commands
+
+== Additional Commands
 * Status
 * Stop
 * Pause
