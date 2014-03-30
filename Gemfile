@@ -12,6 +12,7 @@ group :development, :test do
   gem 'awesome_print', '~> 1.1.0'
 end
 
+gem 'pry', '~> 0.9.12.6'
 gem 'gli', '~> 2.5.0'
 gem 'soundcloud','~> 0.3.1'
 gem 'vlc-client', git: "git@github.com:oMartell/vlc-client.git"
