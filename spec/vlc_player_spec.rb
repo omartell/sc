@@ -3,7 +3,8 @@ require 'spec_helper'
 describe Sc::VLCPlayer do
   describe "#connect" do
     it "only tries once to start the connection" do
-      vlc_client = double(:vlc_client)
+      server     = double
+      vlc_client = double(:vlc_client, server: server)
       vlc_client.stub(:connect) do
         unless @raised
           @raised = true
@@ -11,19 +12,18 @@ describe Sc::VLCPlayer do
         end
       end
 
-      start_vlc_process = double(:start_vlc_process, call: nil)
-      expect(start_vlc_process).to receive(:call).once
+      expect(server).to receive(:start).twice
 
-      player = Sc::VLCPlayer.new(vlc_client, start_vlc_process, double.as_null_object)
+      player = Sc::VLCPlayer.new(vlc_client, double.as_null_object)
 
       player.connect
     end
 
     it "raises PlayerNotAvailableError if there's an error when trying to connect" do
-      vlc_client = double(:vlc_client)
+      vlc_client = double(:vlc_client, server: double.as_null_object)
       vlc_client.stub(:connect){ raise VLC::ConnectionRefused.new }
 
-      player = Sc::VLCPlayer.new(vlc_client, double.as_null_object, double)
+      player = Sc::VLCPlayer.new(vlc_client, double)
 
       expect{
         player.connect

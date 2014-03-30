@@ -4,9 +4,9 @@
 
 == Installation
 * This command line app is only compatible with VLC player for MAC OS X
-* VLC will run as a daemon in TCP Socket Server mode on localhost:9000
+* VLC will run on RC TCP socket mode on localhost
 * Install VLC player in your Applications folder, get it from http://www.videolan.org/vlc/index.html
-* Clone this repo, last working version is d981bddc97a34c05a7044b1a7dda86fb6d345a34
+* Clone this repo, last working version is `d981bddc97a34c05a7044b1a7dda86fb6d345a34`
 * Navigate to the repo
 * Run
     bundle
