@@ -2,8 +2,8 @@ class Sc::VLCPlayer
   attr_reader :vlc_client,  :output_logger
 
   def initialize(vlc_client, output_logger)
-    @vlc_client        = vlc_client
-    @output_logger     = output_logger
+    @vlc_client = vlc_client
+    @output_logger = output_logger
   end
 
   def play_track(track)
@@ -20,13 +20,9 @@ class Sc::VLCPlayer
       if @attempts == 1
         connect
       else
-        raise Sc::PlayerNotAvailableError.new("Your vlc player doesnt seem to be available to connect")
+        raise Sc::PlayerNotAvailableError.new("VLC doesn't seem to be available to connect")
       end
     end
-  end
-
-  def disconnect
-    vlc_client.server.stop
   end
 
   def play_playlist(playlist)
@@ -35,7 +31,4 @@ class Sc::VLCPlayer
     end
   end
 
-  def add_track_to_playlist(permalink)
-
-  end
 end
